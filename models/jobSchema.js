@@ -78,4 +78,4 @@ jobSchema.pre("validate",function(next){
   next();
 });
 
-export const JobModel=model("job", jobSchema);
+export const jobSchema=model("job", jobSchema);
