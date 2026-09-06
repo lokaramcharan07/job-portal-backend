@@ -1,8 +1,7 @@
 import exp from"express";
-import{usersSchema}from"../models/usersSchema.js";
 import{jobSchema}from"../models/jobSchema.js";
 import{applSchema}from"../models/applSchema.js";
-import{verifyToken,allowRoles}from"../middleware/authMiddleware.js";
+import{verifyToken,allowRoles}from"../middleware/authorizationMiddleware.js";
 export const jobRouter=exp.Router();
 // View all available jobs - public
 jobRouter.get("/jobs",async(req,res)=>{
