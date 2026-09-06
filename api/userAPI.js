@@ -2,7 +2,7 @@ import exp from"express";
 import bcrypt from"bcryptjs";
 import jwt from"jsonwebtoken";
 import{usersSchema}from"../models/usersSchema.js";
-import{verifyToken,allowRoles}from"../middleware/authMiddleware.js";
+import{verifyToken,allowRoles}from"../middleware/authorizationMiddleware.js";
 export const userRouter=exp.Router();
 // Register as Job Seeker or Employer
 userRouter.post("/register",async(req,res)=>{
