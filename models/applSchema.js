@@ -34,4 +34,4 @@ const applicationSchema=new Schema(
 
 applicationSchema.index({job:1,jobSeeker:1},{unique:true});
 
-export const ApplicationModel=model("application",applicationSchema);
+export const applSchema=model("application",applicationSchema);
