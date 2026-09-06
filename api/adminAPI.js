@@ -1,8 +1,8 @@
 import exp from "express";
-import {UserModel} from "../models/userModel.js";
-import {JobModel} from "../models/jobModel.js";
-import {ApplicationModel} from "../models/applicationModel.js";
-import {verifyToken,allowRoles} from "../middleware/authMiddleware.js";
+import {usersSchema} from "../models/usersSchema.js";
+import {jobSchema} from "../models/jobSchema.js";
+import {applSchema} from "../models/applSchema.js";
+import {verifyToken,allowRoles} from "../middleware/authorizationMiddleware.js";
 
 export const adminRouter=exp.Router();
 
