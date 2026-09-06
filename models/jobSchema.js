@@ -1,6 +1,6 @@
 import {Schema,model,Types} from "mongoose";
 
-const jobSchema=new Schema(
+const jobSchemaDef=new Schema(
   {
     title:{
       type:String,
@@ -71,11 +71,11 @@ const jobSchema=new Schema(
   }
 );
 
-jobSchema.pre("validate",function(next){
-  if (this.salaryMax < this.salaryMin){
+jobSchemaDef.pre("validate",function(next){
+  if (this.salaryMax<this.salaryMin){
     return next(new Error("salaryMax must be greater than or equal to salaryMin"));
   }
   next();
 });
 
-export const jobSchema=model("job", jobSchema);
+export const jobSchema=model("job", jobSchemaDef);
