@@ -1,6 +1,5 @@
 import jwt from"jsonwebtoken";
-import{UserModel}from"../models/userModel.js";
-
+import{usersSchema}from"../models/usersSchema.js";
 export async function verifyToken(req,res,next){
   try{
     let token=req.cookies.token;
@@ -8,7 +7,7 @@ export async function verifyToken(req,res,next){
       return res.status(401).json({success:false,message:"Login required"});
     }
     let decoded=jwt.verify(token,process.env.JWT_SECRET);
-    let user=await UserModel.findById(decoded.userId);
+    let user=await usersSchema.findById(decoded.userId);
     if(!user){
       return res.status(401).json({success:false,message:"User not found"});
     }
@@ -21,7 +20,6 @@ export async function verifyToken(req,res,next){
     return res.status(401).json({success:false,message:"Invalid or expired token"});
   }
 }
-
 export function allowRoles(...roles){
   return(req,res,next)=>{
     if(!roles.includes(req.user.role)){
